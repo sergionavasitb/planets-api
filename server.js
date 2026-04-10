@@ -776,7 +776,7 @@ app.use((req, res) => {
 });
 
 // ─────────────────────────────────────────
-app.listen(PORT, () => {
+app.listen(PORT,'0.0.0.0', () => {
   console.log(`\n🪐 Planets API v2.0 corriendo en http://localhost:${PORT}`);
   console.log(`🗂️  Modelos 3D en http://localhost:${PORT}/models/`);
   console.log(`📖 Endpoints en http://localhost:${PORT}/\n`);
