@@ -7,6 +7,7 @@ const PORT = process.env.PORT || 8080;
 
 app.use(cors());
 app.use(express.json());
+app.set("trust proxy", true);
 
 // ─────────────────────────────────────────
 // STATIC — sirve los archivos GLB
@@ -23,7 +24,11 @@ app.use("/models", express.static(path.join(__dirname, "models"), {
 // ─────────────────────────────────────────
 // HELPER — construye la URL base
 // ─────────────────────────────────────────
-const baseUrl = (req) => `${req.protocol}://${req.get("host")}`;
+const baseUrl = (req) => {
+  // Busca si Render nos dice que la petición original era HTTPS
+  const protocol = req.headers["x-forwarded-proto"] || req.protocol;
+  return `${protocol}://${req.get("host")}`;
+};
 
 // ─────────────────────────────────────────
 // DATA
