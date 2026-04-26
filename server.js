@@ -1472,10 +1472,9 @@ app.use((req, res) => {
 
 // ─────────────────────────────────────────
 app.listen(PORT, "0.0.0.0", () => {
-  console.log(`\n🪐 Planets API v4.0 en http://localhost:${PORT}`);
-  console.log(`📦 ${Object.keys(bodiesData).length} cuerpos cargados`);
-  console.log(`🗂️  Modelos en http://localhost:${PORT}/models/`);
-  console.log(`🖼️  Imágenes en http://localhost:${PORT}/imagenes/\n`);
+  console.log(`\n🪐 Servidor activo en el puerto ${PORT}`);
+    console.log(`🔗 Local: http://localhost:${PORT}`);
+    console.log(`📱 Android Emulator: http://10.0.2.2:${PORT}`);
 });
 
 module.exports = app;
